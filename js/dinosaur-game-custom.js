@@ -112,7 +112,7 @@ function moveCactus() {
     map.dinoDrawing();
     map.drawFloor();
     map.drawScore();
-    map.score.val += 10;
+    map.score.val += 0.5;
     // cactus.draw();
     if(timer % frame == 0) {
         var cactusObj = new Cactus();
