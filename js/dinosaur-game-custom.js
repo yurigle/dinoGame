@@ -24,7 +24,7 @@ class GameStart {
             }, 
             fall() {
                 if(this.y <200) {
-                    this.y += 2;
+                    this.y += 4;
                 }
             }
         };
@@ -70,7 +70,8 @@ class GameStart {
 class Cactus extends GameStart {
     constructor(ctx) {
         super(ctx);
-        this.x = 600;
+        this.randomX = Math.random() * 700;
+        this.x = Math.floor(this.randomX + 600);
         this.y = 200;
         this.width = 50;
         this.height = 50;
@@ -96,21 +97,26 @@ function moveCactus() {
     map.dinoDrawing();
     map.drawFloor();
     map.drawScore();
+    map.score.val += 10;
     // cactus.draw();
-    if(timer % 200 == 0) {
+    if(timer % 120 == 0) {
         var cactusObj = new Cactus();
         cactusArr.push(cactusObj);
         // cactusObj.draw();
     }
     
     cactusArr.forEach((element, i, object) => {
-        element.x -= 2;
+        var speed = 0;
+        element.x -=5;
+        if(element.x < 0) {
+            object.splice(i, 1);
+            // element.x -= speed;
+            // console.log(speed);  
+        }
+        // element.x -= 5;
         element.draw();
         gameOver(map.dino, element);
-        if(element.x < 0) {
-            map.score.val += 10;
-            object.splice(i, 1);
-        }
+        
     });
 
     if(jumping == true) {
