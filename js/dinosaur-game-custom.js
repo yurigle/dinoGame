@@ -161,7 +161,6 @@ document.addEventListener('touchmove', function(e) {
     e.preventDefault();
     jumping = true;
     jumpingNum++;
-    
 });
 
 document.addEventListener('keyup', function(e) {
