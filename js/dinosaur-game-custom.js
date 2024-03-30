@@ -155,8 +155,8 @@ document.addEventListener('keydown', function(e) {
         jumping = true;
         jumpingNum++;
     }
-    
 });
+
 document.addEventListener('touchmove', function(e) {
     e.preventDefault();
     jumping = true;
