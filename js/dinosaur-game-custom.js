@@ -18,7 +18,7 @@ class GameStart {
             y : 200,
             width : 50,
             height : 50,
-            imageSrc : './dinoGame/img/dinosaur.png',
+            imageSrc : 'dinoGame/img/dinosaur.png',
             jump() {
                 this.y -= 5;  
             }, 
