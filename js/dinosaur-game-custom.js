@@ -1,5 +1,6 @@
 var speed = 5;
 var frame = 120;
+var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
 window.onload = function() {
     if ( varUA.indexOf('android') > -1) {
         //안드로이드
