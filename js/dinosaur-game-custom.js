@@ -1,3 +1,14 @@
+var frame = 120;
+window.onload = function() {
+    if ( varUA.indexOf('android') > -1) {
+        //안드로이드
+        frame = 200;
+    } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
+        //IOS
+        frame = 120;
+    }
+}
+
 var timer = 0;
 var cactusArr = [];
 var animate;
@@ -91,6 +102,8 @@ class Cactus extends GameStart {
 var map = new GameStart();
 var cactus = new Cactus();
 
+
+
 function moveCactus() {
     animate = requestAnimationFrame(moveCactus);
     timer++;
@@ -99,7 +112,7 @@ function moveCactus() {
     map.drawScore();
     map.score.val += 10;
     // cactus.draw();
-    if(timer % 120 == 0) {
+    if(timer % frame == 0) {
         var cactusObj = new Cactus();
         cactusArr.push(cactusObj);
         // cactusObj.draw();
