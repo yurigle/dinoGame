@@ -1,10 +1,12 @@
+var speed = 5;
 var frame = 120;
 window.onload = function() {
     if ( varUA.indexOf('android') > -1) {
         //안드로이드
         frame = 200;
+        speed = 2;
     } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
-        //IOS
+        speed = 5;
         frame = 120;
     }
 }
@@ -119,14 +121,10 @@ function moveCactus() {
     }
     
     cactusArr.forEach((element, i, object) => {
-        var speed = 0;
-        element.x -=5;
+        element.x -= speed;
         if(element.x < 0) {
             object.splice(i, 1);
-            // element.x -= speed;
-            // console.log(speed);  
         }
-        // element.x -= 5;
         element.draw();
         gameOver(map.dino, element);
         
