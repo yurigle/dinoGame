@@ -157,7 +157,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-document.addEventListener('touchmove', function(e) {
+document.addEventListener('touchstart', function(e) {
     e.preventDefault();
     jumping = true;
     jumpingNum++;
