@@ -4,7 +4,7 @@ var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
 if ( varUA.indexOf('android') > -1) {
     //안드로이드
     frame = 200;
-    speed = 2.5;
+    speed = 3;
 } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
     speed = 5;
     frame = 120;
@@ -112,7 +112,7 @@ function moveCactus() {
     map.dinoDrawing();
     map.drawFloor();
     map.drawScore();
-    map.score.val += 0.5;
+    map.score.val += 1;
     // cactus.draw();
     if(timer % frame == 0) {
         var cactusObj = new Cactus();
