@@ -18,7 +18,7 @@ class GameStart {
             y : 200,
             width : 50,
             height : 50,
-            imageSrc : 'img/dinosaur.png',
+            imageSrc : '../img/dinosaur.png',
             jump() {
                 this.y -= 5;  
             }, 
@@ -74,7 +74,7 @@ class Cactus extends GameStart {
         this.y = 200;
         this.width = 50;
         this.height = 50;
-        this.imageSrc = 'img/cactus.png';
+        this.imageSrc = '../img/cactus.png';
     }
 
     draw(){
