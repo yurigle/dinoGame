@@ -157,6 +157,12 @@ document.addEventListener('keydown', function(e) {
     }
     
 });
+document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    jumping = true;
+    jumpingNum++;
+    
+});
 
 document.addEventListener('keyup', function(e) {
     if (e.code === 'Space') {
