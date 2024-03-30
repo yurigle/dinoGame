@@ -74,7 +74,7 @@ class Cactus extends GameStart {
         this.y = 200;
         this.width = 50;
         this.height = 50;
-        this.imageSrc = '../img/cactus.png';
+        this.imageSrc = '/../img/cactus.png';
     }
 
     draw(){
