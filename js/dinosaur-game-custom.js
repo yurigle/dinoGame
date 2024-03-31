@@ -1,15 +1,14 @@
-var speed = 5;
+var speed = 4;
 var frame = 120;
 var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
-if ( varUA.indexOf('android') > -1) {
+if (varUA.indexOf('android') > -1) {
     //안드로이드
     frame = 200;
     speed = 3;
-} else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
-    speed = 5;
+} else if (varUA.indexOf("iphone") > -1 || varUA.indexOf("ipad") > -1 || varUA.indexOf("ipod") > -1) {
+    speed = 4;
     frame = 120;
 }
-
 
 var timer = 0;
 var cactusArr = [];
@@ -104,15 +103,13 @@ class Cactus extends GameStart {
 var map = new GameStart();
 var cactus = new Cactus();
 
-
-
 function moveCactus() {
     animate = requestAnimationFrame(moveCactus);
     timer++;
     map.dinoDrawing();
     map.drawFloor();
     map.drawScore();
-    map.score.val += 1;
+    map.score.val += 1; // 점수는 1초에 1씩 올라가게 끔
     // cactus.draw();
     if(timer % frame == 0) {
         var cactusObj = new Cactus();
@@ -121,7 +118,13 @@ function moveCactus() {
     }
     
     cactusArr.forEach((element, i, object) => {
-        element.x -= speed;
+        if(i == 0) {
+            element.x -= speed;
+        } else {
+            element.x -= speed + i;
+        }
+
+        
         if(element.x < 0) {
             object.splice(i, 1);
         }
@@ -147,6 +150,7 @@ function moveCactus() {
     if(jumpTimer > 20) {
         jumping = false;
     }
+
 
 }
 
