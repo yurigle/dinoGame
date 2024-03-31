@@ -1,3 +1,4 @@
+var player = prompt('닉네임 적어라');
 var speed = 4;
 var frame = 120;
 var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
@@ -118,13 +119,7 @@ function moveCactus() {
     }
     
     cactusArr.forEach((element, i, object) => {
-        if(i == 0) {
-            element.x -= speed;
-        } else {
-            element.x -= speed + i;
-        }
 
-        
         if(element.x < 0) {
             object.splice(i, 1);
         }
@@ -161,6 +156,14 @@ function gameOver(dino, cactus) {
     var yval = cactus.y - (dino.y + dino.height);
     if(xval < -5 && yval < -5) {
         cancelAnimationFrame(animate);
+        var playerScore = {
+            'name' : player,
+            'score' : map.score.val
+        };
+        var playerScoreString = JSON.stringify(playerScore);
+        window.localStorage.setItem('scores', playerScoreString);
+        console.log(window.localStorage.getItem('scores'));
+        
         if(confirm('다시 시작하겠습니까?')) {
             location.reload(true);
         }
