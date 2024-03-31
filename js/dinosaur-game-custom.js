@@ -119,7 +119,7 @@ function moveCactus() {
     }
     
     cactusArr.forEach((element, i, object) => {
-
+        element.x -= speed;
         if(element.x < 0) {
             object.splice(i, 1);
         }
@@ -163,7 +163,7 @@ function gameOver(dino, cactus) {
         var playerScoreString = JSON.stringify(playerScore);
         window.localStorage.setItem('scores', playerScoreString);
         console.log(window.localStorage.getItem('scores'));
-        
+
         if(confirm('다시 시작하겠습니까?')) {
             location.reload(true);
         }
